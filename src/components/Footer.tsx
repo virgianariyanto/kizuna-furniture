@@ -8,7 +8,7 @@ const serviceLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-section-padding-desktop bg-surface-container-low border-t border-outline-variant">
+    <footer className="w-full bg-surface-container-low border-t border-outline-variant">
       {/* Main Footer Grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 px-gutter py-section-padding-mobile md:py-section-padding-desktop max-w-container-max mx-auto">
         {/* Brand Column */}
