@@ -1,0 +1,424 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>KIZUNA | Intentional Living</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#514531",
+                    "secondary-fixed": "#f2e0c5",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "inverse-primary": "#c8c6c5",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#e5e2e1",
+                    "tertiary": "#000000",
+                    "tertiary-fixed-dim": "#c9c6c2",
+                    "on-primary-container": "#858383",
+                    "on-secondary-container": "#6e614b",
+                    "on-surface-variant": "#444748",
+                    "tertiary-fixed": "#e5e2dd",
+                    "surface-bright": "#fcf9f5",
+                    "outline": "#747878",
+                    "primary-container": "#1c1b1b",
+                    "on-primary-fixed": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#231a0a",
+                    "on-primary-fixed-variant": "#474746",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1c1c1a",
+                    "on-surface": "#1c1c1a",
+                    "secondary-container": "#efddc2",
+                    "surface-container-highest": "#e5e2de",
+                    "background": "#fcf9f5",
+                    "surface-container-low": "#f6f3ef",
+                    "surface-dim": "#dcdad6",
+                    "secondary": "#695d47",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#d5c4aa",
+                    "surface-container": "#f0ede9",
+                    "error-container": "#ffdad6",
+                    "primary": "#000000",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface": "#fcf9f5",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#31302e",
+                    "inverse-on-surface": "#f3f0ec",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "tertiary-container": "#1c1c19",
+                    "surface-tint": "#5f5e5e",
+                    "outline-variant": "#c4c7c7",
+                    "on-tertiary-container": "#858480",
+                    "surface-variant": "#e5e2de",
+                    "surface-container-high": "#eae8e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "section-padding-desktop": "120px",
+                    "container-max": "1440px",
+                    "unit": "8px",
+                    "section-padding-mobile": "64px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-up { transform: translateY(40px); }
+        
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-underline:hover::after { width: 100%; }
+
+        .btn-hover-invert {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-hover-invert:hover {
+            background-color: transparent;
+            color: #000000;
+            box-shadow: inset 0 0 0 1px #000000;
+        }
+
+        .secondary-btn-hover:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-6 inset-x-0 z-50 flex justify-center px-gutter pointer-events-none">
+  <nav class="flex justify-between items-center px-10 py-4 w-full max-w-4xl bg-surface/80 backdrop-blur-xl border border-outline-variant/20 rounded-full shadow-sm transition-all duration-500 ease-in-out pointer-events-auto">
+    <!-- Brand Logo -->
+    <a class="font-display-lg text-2xl md:text-3xl text-primary tracking-[0.15em] font-medium hover:opacity-70 transition-opacity" href="/">KIZUNA</a>
+    
+    <!-- Navigation Links -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-colors duration-300 relative nav-underline uppercase tracking-[0.25em]" href="#">Shop</a>
+      <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-colors duration-300 relative nav-underline uppercase tracking-[0.25em]" href="#">Collections</a>
+      <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-colors duration-300 relative nav-underline uppercase tracking-[0.25em]" href="#">Journal</a>
+      <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-colors duration-300 relative nav-underline uppercase tracking-[0.25em]" href="#">About</a>
+    </div>
+    
+    <!-- Actions -->
+    <div class="flex items-center space-x-6 text-primary">
+      <button class="hover:opacity-70 transition-opacity duration-300 flex items-center">
+        <span class="material-symbols-outlined">search</span>
+      </button>
+      <button class="hover:opacity-70 transition-opacity duration-300 flex items-center">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+      <button class="hover:opacity-70 transition-opacity duration-300 flex items-center relative">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="absolute -top-1 -right-1 text-[10px] bg-primary text-on-primary rounded-full w-4 h-4 flex items-center justify-center">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic, wide-angle photograph of a sun-drenched Japandi living room. Soft morning light filters through thin linen curtains, illuminating a low-profile white oak sofa and a circular stone coffee table. The walls are a textured off-white plaster, and a single sculptural bonsai tree sits in a matte black ceramic pot. The aesthetic is extremely minimalist, high-end, and serene, with a color palette of warm neutrals and soft charcoals." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpQDya9Rdz_AKdNvOPXLbzgzvxaphS3DRSKAqY67yqpceUIllJ0mBO3Dk5JVNFSyAbbMRKsfoXVUG4QR8dEP3zyPWn-u76dVfgO6t5veqeeCvCeLqFQ8_4JPKw1VlkXMJ0vTLmRwZuaeaPdN9Z0CJVd60vxm4bVzZBQI85re_dZjTkUUGriMToR6f_89Cy2QDaI2Waj-7N6K1ct1TxivaXfpWNRlgwdNAkjp9_4fp-ESELmlBDD-9WAA')"></div>
+<div class="absolute inset-0 bg-black/5"></div>
+</div>
+<div class="relative z-10 px-gutter max-w-container-max mx-auto w-full">
+<div class="max-w-2xl reveal reveal-up active">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Artistry in Every Detail</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">Curated minimalist furniture for the modern home. Where Scandinavian functionality meets Japanese rustic charm.</p>
+<a class="inline-block bg-primary text-on-primary font-label-caps text-label-caps px-10 py-5 btn-hover-invert uppercase tracking-widest" href="#shop">Explore Collection</a>
+</div>
+</div>
+</section>
+<!-- Featured Categories -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop px-gutter max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16 reveal reveal-up active">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Curated Spaces</h2>
+<p class="font-body-md text-on-surface-variant">Design for every corner of your intentional life.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Living -->
+<div class="group cursor-pointer reveal reveal-up active" style="transition-delay: 100ms;">
+<div class="aspect-[3/4] overflow-hidden mb-6 bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="A minimalist living room category image showcasing a low-slung lounge chair upholstered in neutral bouclé fabric. Next to it is a small side table crafted from dark charred wood. The lighting is soft and directional, highlighting the rich textures of the materials against a creamy white background. Professional architectural photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwP7VsXKZXzfHn9XcIyQy-PlV3E127SNhr61LglcVT6bfpO2_W8YpG4OoGD8mZNmhAwAyfROd68EaSHOFql4AEyLpB_mbuXENRhgcji4HfWjKXu6KHZRQXGBt_7fCNELDCfwd2zV21Xm2_y13_9TMHwmtJ7O6qfSy10jVqoaovdnz28fRs5tEKep_pXiZ5eu3HBXrBRj5OuzFiCzE1un9kn_WiO19mIlN-rDsD5YXmvF1vS2g6ewsVTg')"></div>
+</div>
+<div class="text-center">
+<h3 class="font-label-caps text-label-caps uppercase tracking-[0.2em] mb-2">Living</h3>
+<div class="w-8 h-[1px] bg-outline mx-auto transition-all duration-300 group-hover:w-16"></div>
+</div>
+</div>
+<!-- Dining -->
+<div class="group cursor-pointer reveal reveal-up active" style="transition-delay: 200ms;">
+<div class="aspect-[3/4] overflow-hidden mb-6 bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="A sophisticated dining room setup featuring a solid light oak table with clean, sharp lines. Two minimalist black chairs with woven paper-cord seats are tucked neatly. On the table sits a single handmade ceramic vase with a dried branch. The scene is bright and airy, reflecting a high-end Japandi interior design aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnfu8040Kl5ySZIB4IDoojcQmbscDY2JPmOq03RuUhlKJWIuq6WEloFRoFxWW_3WCff1bsPZDySH7kcPtOtqSioWpF9tTedHetf-9UFkBDprvh0MO50_Z-wRaUMHm3mb-096-0RCeqasRa-PECi8D1YJ4Jh3o-u6gkJyXmy3WQluAW5n9KYdOpcdT5OVbWezP7-fFzht1Y9-OSCiop9dKWvKNPfHtCZcpxJ1SbNE7hbEXjcdrtDmg9JA')"></div>
+</div>
+<div class="text-center">
+<h3 class="font-label-caps text-label-caps uppercase tracking-[0.2em] mb-2">Dining</h3>
+<div class="w-8 h-[1px] bg-outline mx-auto transition-all duration-300 group-hover:w-16"></div>
+</div>
+</div>
+<!-- Workspace -->
+<div class="group cursor-pointer reveal reveal-up active" style="transition-delay: 300ms;">
+<div class="aspect-[3/4] overflow-hidden mb-6 bg-surface-container">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="A calm and focused workspace featuring a wall-mounted desk in natural ash wood. A premium desk lamp in matte charcoal provides warm task lighting. Minimalist stationery is arranged with geometric precision. The background is a soft gray wall with gentle shadows of tree leaves dancing across it. High-end, serene home office vibe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPimaeEvBEQ8tnlGLdOAeFTuEOQF8PhXVWNUMcf9GdyrnI9jc_DbWjCIQwErHGoYVN22rWWyIYZYwDy7DtH6nSGbQ4dJF783QJDs_0xPZIoIOmSeRdxUNahETKH1LyfrBSF-IQUrwhUoiLPmPH6poo6Zxe8XqYfdb_TdjxlKs5EvvzQlzPbK-ZxzVw572dYdXqRVvxhtQko_RvXXu1TbveIA8i9ilM1sypeKS9l462e1kFouLBgW47rA')"></div>
+</div>
+<div class="text-center">
+<h3 class="font-label-caps text-label-caps uppercase tracking-[0.2em] mb-2">Workspace</h3>
+<div class="w-8 h-[1px] bg-outline mx-auto transition-all duration-300 group-hover:w-16"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Best Sellers -->
+<section class="bg-surface-container-low py-section-padding-mobile md:py-section-padding-desktop" id="shop">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="text-center mb-16 reveal reveal-up active">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.3em] block mb-4">Selected Pieces</span>
+<h2 class="font-headline-md text-headline-md text-primary">Best Sellers</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+<!-- Product 1 -->
+<div class="group reveal reveal-up active" style="transition-delay: 100ms;">
+<div class="relative aspect-square overflow-hidden bg-surface-container mb-6">
+<div class="w-full h-full bg-cover bg-center" data-alt="Product shot of the 'Sora Lounge Chair', a minimalist piece with a light-colored wood frame and deep indigo linen cushions. Shot in a studio setting with soft, high-key lighting that emphasizes the clean joinery and organic textures. Neutral background with soft ambient shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFmTeOH-xWmjPvVBtWtwHLesTi4Dl9cIiGHo4dL3zNskofjipGUcrlgNAqT-4EjWpp3p0bpUjDjf7-DF311OWGFjyxBe6pkwky3p-N0pC_gtkmGlvlM71Yggps5HWzPlIc0J7NAbZnf4cUIINixyBFsy074kSkR66rRvXSAOtHMaUzbFxtYgPnFldVx9zn4izj7LdnhnCTW0QPq0ZqKfB-AbhtQkH7yLjcl8TtwBqAfwaPzAY3t5MEgQ')"></div>
+<div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-4 uppercase tracking-widest backdrop-blur-md bg-opacity-90 hover:bg-opacity-100 transition-all">Add to Cart</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body-md text-primary mb-1">Sora Lounge Chair</h4>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Ash &amp; Linen</p>
+</div>
+<span class="font-body-md text-primary">$1,250</span>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group reveal reveal-up active" style="transition-delay: 200ms;">
+<div class="relative aspect-square overflow-hidden bg-surface-container mb-6">
+<div class="w-full h-full bg-cover bg-center" data-alt="Product shot of the 'Kuro Coffee Table', a low circular table made from solid scorched oak, showing a beautiful black textured finish. The table has three chunky cylindrical legs. Studio lighting emphasizes the matte finish and wood grain. Minimalist Japandi furniture design." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJcOXxn9N9wjiho5ZmgA0R1GZyO4_DpWRsjs2jiK4BkGwqVhGa0PZst07uiIDhKY7YP1k3WQKsTkq5V1DcS6964oXj7m9z-0pzGSLnHqy9fL3JrwMnGNNuTxznaKBDuDinYeZ7Gt58hKJocuessBhKq94p0VqcQuCVxOfLjn3TCYWacUFt9dGqiBB_Bul9KDdaaSGZpIzaX5UVPiurN95w_SlDomzlHvpDIQeC9hnEpUyhbD0VT6TURg')"></div>
+<div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-4 uppercase tracking-widest backdrop-blur-md bg-opacity-90 hover:bg-opacity-100 transition-all">Add to Cart</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body-md text-primary mb-1">Kuro Coffee Table</h4>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Scorched Oak</p>
+</div>
+<span class="font-body-md text-primary">$890</span>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group reveal reveal-up active" style="transition-delay: 300ms;">
+<div class="relative aspect-square overflow-hidden bg-surface-container mb-6">
+<div class="w-full h-full bg-cover bg-center" data-alt="Product shot of the 'Yumi Floor Lamp', featuring a slender arched arm in brushed brass and a large conical shade made of pleated rice paper. The light is soft and warm. Clean, minimalist aesthetic against a warm white studio background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMKf12lWwbS4tceGQ-fF8vDeJux3NLXIhH9Zg1NFfewJsOTaBvHdOivGW83oaNzJRzpkh2QN24-AfKIz3UvKv241Vh89blSukLBdwlbExWOO6fKqsB9DyunUb6TBXRl3W3ynuHZ3fNYEFcGrMVCbMGKwyAPNNbScIbGxbJK-PHxl8LxTX1RN5zBnd25APXO9CHLooTMtL59etlJgBHGZ90xZ6G0pqXTNT8VH8Y4IfTAwlOx1Y9t13prA')"></div>
+<div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-4 uppercase tracking-widest backdrop-blur-md bg-opacity-90 hover:bg-opacity-100 transition-all">Add to Cart</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body-md text-primary mb-1">Yumi Floor Lamp</h4>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Brass &amp; Paper</p>
+</div>
+<span class="font-body-md text-primary">$420</span>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group reveal reveal-up active" style="transition-delay: 400ms;">
+<div class="relative aspect-square overflow-hidden bg-surface-container mb-6">
+<div class="w-full h-full bg-cover bg-center" data-alt="Product shot of the 'Mori Sideboard', a wide horizontal cabinet with sliding doors made of vertical oak slats. The design is clean and geometric, sitting on slim tapered legs. High-end Scandinavian-Japanese fusion style. Studio lighting with subtle shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBePuPWcIulnDs9vIpu4VJHp5dPaNLIe9M1hiJBeTHJ3V3llHflDpH9m9GWHfyZ8m-kcvvfH59xNYdFDeuYK88ryPim_HM-oTqTC6Z402JHoGi3n_YheS5AcC1ZAr_FPl8rn8vYSO9IEKLwtVLY5miu0e_igdz8Pr9-nDkoR4TbrYngS1g1z-3SZYUgrpCGcFIctPsvFHXVNn8MOKdUxv6MyMBZg3dhDLLsjLFBYWpvwytWYGHIFc8uqg')"></div>
+<div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-4 uppercase tracking-widest backdrop-blur-md bg-opacity-90 hover:bg-opacity-100 transition-all">Add to Cart</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-body-md text-primary mb-1">Mori Sideboard</h4>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">White Oak</p>
+</div>
+<span class="font-body-md text-primary">$2,100</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Prop -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop border-t border-outline-variant/30">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+<div class="reveal reveal-up active" style="transition-delay: 100ms;">
+<div class="mb-6 flex justify-center">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 0;">eco</span>
+</div>
+<h3 class="font-label-caps text-label-caps uppercase tracking-widest mb-3">Sustainable Materials</h3>
+<p class="font-body-md text-on-surface-variant px-4">Responsibly sourced hardwoods and organic textiles chosen for longevity.</p>
+</div>
+<div class="reveal reveal-up active" style="transition-delay: 200ms;">
+<div class="mb-6 flex justify-center">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 0;">handyman</span>
+</div>
+<h3 class="font-label-caps text-label-caps uppercase tracking-widest mb-3">Artisan Crafted</h3>
+<p class="font-body-md text-on-surface-variant px-4">Each piece is hand-finished by master craftspeople using traditional joinery.</p>
+</div>
+<div class="reveal reveal-up active" style="transition-delay: 300ms;">
+<div class="mb-6 flex justify-center">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 0;">local_shipping</span>
+</div>
+<h3 class="font-label-caps text-label-caps uppercase tracking-widest mb-3">White-Glove Delivery</h3>
+<p class="font-body-md text-on-surface-variant px-4">Complimentary assembly and packaging removal for all large furniture pieces.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-section-padding-desktop bg-surface-container-low border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 px-gutter py-section-padding-mobile md:py-section-padding-desktop max-w-container-max mx-auto">
+<div class="md:col-span-4">
+<a class="font-display-lg text-headline-md text-primary mb-6 block" href="/">KIZUNA</a>
+<p class="font-body-md text-on-surface-variant max-w-xs mb-8">Elevating everyday life through intentional design and Japanese-Scandi craftsmanship.</p>
+<div class="flex space-x-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">camera</span></a>
+</div>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-caps text-label-caps text-primary uppercase mb-6">Explore</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Living</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Dining</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Workspace</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Lighting</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-caps text-label-caps text-primary uppercase mb-6">Service</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Sustainability</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="md:col-span-4">
+<h4 class="font-label-caps text-label-caps text-primary uppercase mb-6">Newsletter</h4>
+<p class="font-body-md text-on-surface-variant mb-6">Join our journal for seasonal inspiration and early access to collections.</p>
+<form class="flex border-b border-primary">
+<input class="bg-transparent border-none focus:ring-0 w-full py-2 font-body-md" placeholder="Email address" type="email">
+<button class="font-label-caps text-label-caps text-primary uppercase tracking-widest py-2" type="submit">Join</button>
+</form>
+</div>
+</div>
+<div class="px-gutter py-8 border-t border-outline-variant/30 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">© 2024 KIZUNA. CREATED FOR INTENTIONAL LIVING.</span>
+<div class="flex space-x-8">
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary uppercase tracking-widest" href="#">Terms</a>
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary uppercase tracking-widest" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+<script>
+        // Reveal Animations on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll handling for Safari/older browsers
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+                header.classList.add('bg-surface/95');
+            } else {
+                header.classList.remove('py-2');
+                header.classList.add('py-4');
+                header.classList.remove('bg-surface/95');
+            }
+        });
+    </script>
+
+
+</body></html>
